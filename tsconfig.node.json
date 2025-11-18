@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    // Soluciona el Error 1: Indica que este es un proyecto compuesto.
+    "composite": true,
+    
+    // Configuración estándar para archivos de Node (como vite.config.ts)
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "types": ["node"],
+    "strict": true,
+    
+    // Soluciona el Error 2: Eliminamos 'noEmit: true'
+    // Al ser un proyecto referenciado, TypeScript espera que pueda emitir archivos.
+    // Si necesitas que no emita, la solución real es sacar este archivo de las "references", 
+    // pero para cumplir con la estructura actual, lo omitimos o lo dejamos en 'false'.
+    "noEmit": false
+  },
+  // Solo incluye archivos de configuración de Node, como vite.config.ts o similares.
+  "include": ["vite.config.ts"]
+}
