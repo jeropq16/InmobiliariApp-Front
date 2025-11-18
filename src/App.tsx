@@ -3,7 +3,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Properties from "./pages/Properties";
 import CreateProperty from "./pages/CreateProperty";
-
+//
 function App() {
   return (
     <BrowserRouter>
