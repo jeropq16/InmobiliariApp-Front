@@ -3,7 +3,7 @@ import axios from 'axios';
 // 1. Crear la instancia de Axios con la URL base
 const api = axios.create({
     // Asegúrate de que esta sea la URL base de tu API en Render
-    baseURL: 'https://appinmobiliaria.onrender.com/api', 
+    baseURL: 'https://appinmobiliaria.onrender.com', 
     headers: {
         'Content-Type': 'application/json',
     },
@@ -13,15 +13,14 @@ const api = axios.create({
 // Este código se ejecuta antes de que CADA solicitud sea enviada.
 api.interceptors.request.use(
     (config) => {
-        // Obtener el token de acceso desde sessionStorage
-        const accessToken = sessionStorage.getItem('access');
+        // Obtener el token de acceso desde localStorage (coherente con el login)
+        const accessToken = localStorage.getItem('access');
 
         // Si el token existe, se añade el encabezado de autorización
         if (accessToken) {
-            // Formato estándar para JWT: "Bearer <token>"
-            config.headers.Authorization = `Bearer ${accessToken}`;
+            (config.headers as any)['Authorization'] = `Bearer ${accessToken}`;
         }
-        
+
         return config;
     },
     (error) => {

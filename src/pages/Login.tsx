@@ -9,12 +9,17 @@ export default function Login() {
   });
 
   const handleLogin = async () => {
-    const res = await api.post<LoginResponse>("/api/auth/login", form);
+    try {
+      const res = await api.post<LoginResponse>("/api/auth/login", form);
 
-    localStorage.setItem("access", res.data.accessToken);
-    localStorage.setItem("refresh", res.data.refreshToken);
+      localStorage.setItem("access", res.data.accessToken);
+      localStorage.setItem("refresh", res.data.refreshToken);
 
-    window.location.href = "/properties";
+      window.location.href = "/properties";
+    } catch (err) {
+      console.error(err);
+      alert("Error al iniciar sesión. Revisa tus credenciales y vuelve a intentarlo.");
+    }
   };
 
   return (
