@@ -3,7 +3,7 @@ import axios from 'axios';
 // 1. Crear la instancia de Axios con la URL base
 const api = axios.create({
     // Asegúrate de que esta sea la URL base de tu API en Render
-    baseURL: 'https://backend-gestion-propiedades-hu4.onrender.com', 
+    baseURL: 'https://appinmobiliaria.onrender.com/api', 
     headers: {
         'Content-Type': 'application/json',
     },
